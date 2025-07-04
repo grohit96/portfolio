@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Football Statistics API & UI - Rohit Ganesh</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+      body {
+        padding-top: 60px;
+      }
+      .dark-mode {
+        background-color: #1e1e1e !important;
+        color: #e0e0e0 !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html">Rohit Ganesh</a>
+        <button class="btn btn-sm btn-outline-secondary" id="modeToggle">
+          🌙
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container" data-aos="fade-up">
+      <h1 class="mt-4">Football Statistics API &amp; UI</h1>
+      <p class="text-muted">MEAN Stack • MongoDB • Node.js • Angular</p>
+
+      <img
+        src="images/api.jpg"
+        class="img-thumbnail mb-4"
+        style="max-width: 220px"
+        alt="Project image placeholder"
+      />
+
+      <ul>
+        <li>
+          Streamlined the data-retrieval process with a user-friendly interface
+          for real-time football statistics.
+        </li>
+        <li>
+          Built a RESTful API using the <strong>MEAN stack</strong> to retrieve,
+          manage, and analyze football statistics.
+        </li>
+        <li>
+          Implemented a <strong>Node.js</strong> backend (Express) handling
+          <strong>500+ daily API requests</strong>, data validation, and
+          <strong>MongoDB</strong> storage for large football datasets.
+        </li>
+        <li>
+          Developed an <strong>Angular</strong> UI for real-time display,
+          enabling filtering and sorting of teams, matches, and player
+          performance across <strong>20+ leagues</strong>.
+        </li>
+      </ul>
+
+      <!-- Paper Link + Back Button -->
+      <div class="d-flex flex-wrap gap-3 mt-4">
+        <a
+          href="https://www.ijitee.org/wp-content/uploads/papers/v8i7s/G10020587S19.pdf"
+          class="btn btn-outline-secondary"
+          target="_blank"
+        >
+          📄 View Published Paper
+        </a>
+        <a href="index.html" class="btn btn-primary">← Back to Portfolio</a>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+      const toggleBtn = document.getElementById("modeToggle");
+      const root = document.documentElement;
+      const initTheme = localStorage.getItem("theme") || "light";
+      setTheme(initTheme);
+
+      toggleBtn.addEventListener("click", () => {
+        const newTheme =
+          root.getAttribute("data-bs-theme") === "light" ? "dark" : "light";
+        setTheme(newTheme);
+      });
+
+      function setTheme(theme) {
+        root.setAttribute("data-bs-theme", theme);
+        if (theme === "dark") {
+          document.body.classList.add("dark-mode");
+          toggleBtn.textContent = "☀️";
+        } else {
+          document.body.classList.remove("dark-mode");
+          toggleBtn.textContent = "🌙";
+        }
+        localStorage.setItem("theme", theme);
+      }
+    </script>
+  </body>
+</html>
